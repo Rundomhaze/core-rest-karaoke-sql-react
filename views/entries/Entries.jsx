@@ -13,7 +13,7 @@ module.exports = function Entries({ entries }) {
               <span className="singer">{entry.singer}</span>
               <span className="song-title">{entry.songTitle}</span>
               <ul className="entry-links">
-                <li className="entry-link"><a className="details" href={`show-one-entry/${entry.id}`}>details</a></li>
+                <li className="entry-link"><a className="details" href={`api/onentry/${entry.id}`}>details</a></li>
                 <li className="entry-link"><a className="edit" href={`edit-one-entry-form/${entry.id}`}>edit</a></li>
                 <li className="entry-link"><a className="deleteCard" href={`api/entry/${entry.id}`}>delete</a></li>
               </ul>

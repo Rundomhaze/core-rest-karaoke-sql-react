@@ -2,7 +2,6 @@ const routerApiEntry = require('express').Router();
 
 const {Entry} = require('../../db/models');
 
-
 routerApiEntry
   .delete('/:id', async (req, res) => {
     try {

@@ -23,6 +23,7 @@ app.use(express.json());
 const indexRouter = require('./routes/index');
 const entriesRouter = require('./routes/entries');
 const routerApiEntry = require('./routes/api/usersRouter')
+const oneEntryRout = require('./routes/api/oneEntryRouter')
 // const homeRouter = require('./routes/pages/homeRouter')
 
 // Подключаем логгирование запросов
@@ -34,7 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
 app.use('/', entriesRouter);
-app.use('/api/entry', routerApiEntry)
+app.use('/api/entry', routerApiEntry);
+app.use('/api/onentry', oneEntryRout)
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

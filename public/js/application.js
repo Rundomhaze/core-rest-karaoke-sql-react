@@ -9,10 +9,10 @@ document.querySelector('.entries').addEventListener('click', async (event) => {
     if (data.status === 'ok') {
       event.target.closest('.entry').remove();
     }
-  }
-  // } else if (event.target.classList.contains('details')) {
+  } 
+  // else if (event.target.classList.contains('details')) {
   //   event.preventDefault();
   //   const url = event.target.href;
-  //   // console.log(url);
+  //   console.log(url);
   // }
 })
