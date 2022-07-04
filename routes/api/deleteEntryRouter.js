@@ -1,8 +1,8 @@
-const routerApiEntry = require('express').Router();
+const deleteEntryRout = require('express').Router();
 
 const {Entry} = require('../../db/models');
 
-routerApiEntry
+deleteEntryRout
   .delete('/:id', async (req, res) => {
     try {
       await Entry.destroy({
@@ -16,4 +16,4 @@ routerApiEntry
     };
   })
 
-module.exports = routerApiEntry;
+module.exports = deleteEntryRout;

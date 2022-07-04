@@ -40,14 +40,14 @@ router.post('/create-new-post', async (req, res) => {
   }
 });
 
-router.get('/show-one-entry/:id', async (req, res) => {
-  const entry = await Entry.findOne({ where: { id: req.params.id } });
+// router.get('/show-one-entry/:id', async (req, res) => {
+//   const entry = await Entry.findOne({ where: { id: req.params.id } });
 
-  const showEntry = React.createElement(ShowEntry, { entry });
-  const html = ReactDOMServer.renderToStaticMarkup(showEntry);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
+//   const showEntry = React.createElement(ShowEntry, { entry });
+//   const html = ReactDOMServer.renderToStaticMarkup(showEntry);
+//   res.write('<!DOCTYPE html>');
+//   res.end(html);
+// });
 
 router.get('/edit-one-entry-form/:id', async (req, res) => {
   const entry = await Entry.findOne({ where: { id: req.params.id } });
@@ -64,7 +64,7 @@ router.post('/update-entry/:id', async (req, res) => {
   entry.singer = singer;
   entry.songTitle = songTitle;
   entry.save();
-  return res.redirect(`/show-one-entry/${entry.id}`);
+  return res.redirect('/');
 });
 
 
