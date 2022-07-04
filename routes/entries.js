@@ -67,9 +67,10 @@ router.post('/update-entry/:id', async (req, res) => {
   return res.redirect(`/show-one-entry/${entry.id}`);
 });
 
+
 // router.get('/delete-entry/:id', async (req, res) => {
 //   await Entry.destroy({ where: { id: req.params.id } });
 //   return res.redirect('/all-the-entries');
-// });
+// }); 
 
 module.exports = router;
