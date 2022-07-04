@@ -11,7 +11,7 @@ module.exports = function Layout({ children }) {
         <link rel="stylesheet" href="/css/application.css" />
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
-        <script src="/js/application.js" />
+        <script src="/js/application.js" defer />
         <title>Karaoke</title>
       </head>
 
