@@ -21,10 +21,18 @@ app.use(express.json());
 
 // Импорт маршрутов.
 const indexRouter = require('./routes/index');
-const entriesRouter = require('./routes/entries');
-const deleteEntryRout = require('./routes/api/deleteEntryRouter')
-const detailsEntryRout = require('./routes/api/detailsEntryRouter')
+// const entriesRouter = require('./routes/entries');
 
+// Импорт маршрутов из views
+const allEntriesRouter = require('./routes/views/allEntry.route');
+const editFormRouter = require('./routes/views/editForm.route');
+const newEntryRoute = require('./routes/views/newEntry.route');
+const oneEntryRouter = require('./routes/views/oneEntry.route');
+
+// Импорт маршрутов из api
+const deleteApiRouter = require('./routes/api/delete.api.route');
+const editApiRouter = require('./routes/api/edit.api.route');
+const newEntryApiRouter = require('./routes/api/newEntry.api.route');
 
 // Подключаем логгирование запросов
 app.use(morgan('dev'));
@@ -34,9 +42,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Подключаем импортированные маршруты с определенным url префиксом.
 app.use('/', indexRouter);
-app.use('/', entriesRouter);
-app.use('/api/entry', deleteEntryRout);
-app.use('/api/onentry', detailsEntryRout)
+// app.use('/', entriesRouter);
+
+// Подключаем импортированные маршруты из views
+app.use('/', allEntriesRouter);
+app.use('/', editFormRouter);
+app.use('/', newEntryRoute);
+app.use('/', oneEntryRouter);
+
+// Подключаем импортированные маршруты из api
+app.use('/api', deleteApiRouter);
+app.use('/api', editApiRouter);
+app.use('/api', newEntryApiRouter);
+
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

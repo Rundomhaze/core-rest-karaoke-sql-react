@@ -2,6 +2,7 @@ document.querySelector('.entries').addEventListener('click', async (event) => {
   if (event.target.classList.contains('deleteCard')) {
     event.preventDefault();
     const url = event.target.href
+    console.log(url);
     const response = await fetch(url, {
       method: "DELETE",
     })
@@ -20,7 +21,7 @@ document.querySelector('.entries').addEventListener('click', async (event) => {
       method: "GET",
     })
     const data = await response.text();    
-      event.target.closest('.entry').insertAdjacentHTML('afterend', data);
+      event.target.closest('.entry').insertAdjacentHTM'/animals/:id'L('afterend', data);
       event.target.closest('.entry').remove();    
   };
 });
@@ -37,3 +38,5 @@ document.querySelector('.entries').addEventListener('click', async (event) => {
       event.target.closest('.entry').remove();    
   };
 });
+
+
