@@ -1,23 +1,26 @@
 const React = require('react');
-// const Layout = require('../Layout');
+const Layout = require('../Layout');
 
 module.exports = function Entries({ entry }) {
   return (
-   
-      <><h1>Entry Details</h1><main className="content-wrapper" role="main">
-      <p>{entry.singer} signed up to sing {entry.songTitle}.</p>
+    <Layout>
+      <h1>Entry Details</h1>
 
-      <p>
-        Entry submitted on {entry.createdAt.toTimeString()}.
+      <main className="content-wrapper" role="main">
+        <p>{entry.singer} signed up to sing {entry.songTitle}.</p>
 
-        {entry.createdAt === entry.updatedAt && (
-          <span>
-            Entry updated on {entry.updatedAt.toTimeString()}.
-          </span>
-        )}
-      </p>
-      <a className="backToMain" href='/'>back</a>
-    </main></>
+        <p>
+          Entry submitted on {entry.createdAt.toTimeString()}.
 
+          {entry.createdAt === entry.updatedAt && (
+            <span>
+              Entry updated on {entry.updatedAt.toTimeString()}.
+            </span>
+          )}
+        </p>
+        <a href="/">Back</a>
+      </main>
+
+    </Layout>
   );
 };

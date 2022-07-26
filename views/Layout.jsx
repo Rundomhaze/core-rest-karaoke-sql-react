@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/aria-role */
 const React = require('react');
+const Header = require('./entries/Header')
 
 module.exports = function Layout({ children }) {
   return (
@@ -10,23 +11,24 @@ module.exports = function Layout({ children }) {
         <link rel="stylesheet" href="/css/normalize.css" />
         <link rel="stylesheet" href="/css/application.css" />
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
-        <script src="/js/application.js" defer />
+        <script defer src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+        <script defer src="/js/application.js" />
         <title>Karaoke</title>
       </head>
 
       <body>
         <div className="container">
-          <header role="banner">
+          {/* <Header></Header> */}
+          {/* <header role="banner" className="header">
             <a className="title" href="/">Karaoke</a>
             <a href="/new-entry-form" className="signup button">Sign up to Karaoke</a>
-          </header>
+          </header> */}
 
           {children}
 
-          <footer role="siteinfo">
+          {/* <footer role="siteinfo">
             <span className="legal">Important Legal Information</span>
-          </footer>
+          </footer> */}
         </div>
       </body>
 

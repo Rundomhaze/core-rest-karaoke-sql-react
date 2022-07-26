@@ -10,7 +10,7 @@
     "@babel/register": "^7.17.7",
     "express": "^4.16.4",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.18",
+    "nodemon": "^2.0.19",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "react": "^18.1.0",
@@ -30,7 +30,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js -e js,jsx,css"
+    "dev": "nodemon app.js -ext js,jsx,css,json --ignore sessions",
+    "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
   },
   "repository": {
     "type": "git",

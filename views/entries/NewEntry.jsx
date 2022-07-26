@@ -19,16 +19,18 @@ module.exports = function NewEntry({ errors }) {
             </ul>
           </div>
         )}
-
-        <form method="post" action="create-new-post">
+        <div className="formAdd">
+        <form className="addForm" method="post" action="/api/create-new-post">
           <label htmlFor="singer_name_input">Singer name:</label>
-          <input id="singer_name_input" name="entry[singer]" type="text" value="entry[singer]" />
+          <input id="singer_name_input" name="singer" type="text" defaultValue="Михаил Круг" />
 
           <label htmlFor="songTitle_input">Song title:</label>
-          <input id="songTitle_input" name="entry[songTitle]" type="text" value="entry[songTitle]" />
+          <input id="songTitle_input" name="songTitle" type="text" defaultValue="Владимирский Централ" />
 
-          <input type="submit" value="Put me on the List!" className="button" />
+          <input type="submit" className="addBtn button" defaultValue="Put me on the List!" />
         </form>
+        </div>
+        <a href="/">Back</a>
       </main>
 
     </Layout>

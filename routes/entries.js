@@ -1,44 +1,44 @@
-const express = require('express');
-const ReactDOMServer = require('react-dom/server');
-const React = require('react');
+// const express = require('express');
+// const ReactDOMServer = require('react-dom/server');
+// const React = require('react');
 
-const Entries = require('../views/entries/Entries');
-const EditEntry = require('../views/entries/EditEntry');
-const NewEntry = require('../views/entries/NewEntry');
-const ShowEntry = require('../views/entries/ShowEntry');
-const { Entry } = require('../db/models');
+// const Entries = require('../views/entries/Entries');
+// const EditEntry = require('../views/entries/EditEntry');
+// const NewEntry = require('../views/entries/NewEntry');
+// const ShowEntry = require('../views/entries/ShowEntry');
+// const { Entry } = require('../db/models');
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get('/all-the-entries', async (req, res) => {
-  const entries = await Entry.findAll();
+// router.get('/all-the-entries', async (req, res) => {
+//   const entries = await Entry.findAll();
 
-  const entriesView = React.createElement(Entries, { entries });
-  const html = ReactDOMServer.renderToStaticMarkup(entriesView);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
+//   const entriesView = React.createElement(Entries, { entries });
+//   const html = ReactDOMServer.renderToStaticMarkup(entriesView);
+//   res.write('<!DOCTYPE html>');
+//   res.end(html);
+// });
 
-router.get('/new-entry-form', async (req, res) => {
-  const newEntry = React.createElement(NewEntry, {});
-  const html = ReactDOMServer.renderToStaticMarkup(newEntry);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
+// router.get('/new-entry-form', async (req, res) => {
+//   const newEntry = React.createElement(NewEntry, {});
+//   const html = ReactDOMServer.renderToStaticMarkup(newEntry);
+//   res.write('<!DOCTYPE html>');
+//   res.end(html);
+// });
 
-router.post('/create-new-post', async (req, res) => {
-  const entry = await Entry.create(req.body.entry);
-  try {
-    await entry.save();
-    // throw Error('You shall not pass');
-    res.redirect(`show-one-entry/${entry.id}`);
-  } catch (err) {
-    const newEntry = React.createElement(NewEntry, { errors: [err] });
-    const html = ReactDOMServer.renderToStaticMarkup(newEntry);
-    res.write('<!DOCTYPE html>');
-    res.end(html);
-  }
-});
+// router.post('/create-new-post', async (req, res) => {
+//   const entry = await Entry.create(req.body.entry);
+//   try {
+//     await entry.save();
+//     // throw Error('You shall not pass');
+//     res.redirect('/all-the-entries');
+//   } catch (err) {
+//     const newEntry = React.createElement(NewEntry, { errors: [err] });
+//     const html = ReactDOMServer.renderToStaticMarkup(newEntry);
+//     res.write('<!DOCTYPE html>');
+//     res.end(html);
+//   }
+// });
 
 // router.get('/show-one-entry/:id', async (req, res) => {
 //   const entry = await Entry.findOne({ where: { id: req.params.id } });
@@ -49,28 +49,28 @@ router.post('/create-new-post', async (req, res) => {
 //   res.end(html);
 // });
 
-router.get('/edit-one-entry-form/:id', async (req, res) => {
-  const entry = await Entry.findOne({ where: { id: req.params.id } });
+// router.get('/edit-one-entry-form/:id', async (req, res) => {
+//   const entry = await Entry.findOne({ where: { id: req.params.id } });
 
-  const editEntry = React.createElement(EditEntry, { entry });
-  const html = ReactDOMServer.renderToStaticMarkup(editEntry);
-  res.write('<!DOCTYPE html>');
-  res.end(html);
-});
+//   const editEntry = React.createElement(EditEntry, { entry });
+//   const html = ReactDOMServer.renderToStaticMarkup(editEntry);
+//   res.write('<!DOCTYPE html>');
+//   res.end(html);
+// });
 
-router.post('/update-entry/:id', async (req, res) => {
-  const entry = await Entry.findOne({ where: { id: req.params.id } });
-  const { singer, songTitle } = req.body.entry;
-  entry.singer = singer;
-  entry.songTitle = songTitle;
-  entry.save();
-  return res.redirect('/');
-});
-
+// router.post('/update-entry/:id', async (req, res) => {
+//   const entry = await Entry.findOne({ where: { id: req.params.id } });
+//   const { singer, songTitle } = req.body.entry;
+//   console.log(req.body.entry);
+//   entry.singer = singer;
+//   entry.songTitle = songTitle;
+//   entry.save();
+//   return res.redirect('/all-the-entries');
+// });
 
 // router.get('/delete-entry/:id', async (req, res) => {
 //   await Entry.destroy({ where: { id: req.params.id } });
 //   return res.redirect('/all-the-entries');
-// }); 
+// });
 
-module.exports = router;
+// module.exports = router;
